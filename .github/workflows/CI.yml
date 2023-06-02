@@ -25,10 +25,10 @@ jobs:
 
     - name: restore package
       run: |
-        cd ./HelloWorldApp
+        cd ./Mymdpapp
         dotnet restore
       
     - name: build app
       run: |
-        cd ./HelloWorldApp
+        cd ./Mymdpapp
         dotnet build
