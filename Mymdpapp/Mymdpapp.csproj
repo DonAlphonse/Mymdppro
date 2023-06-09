@@ -8,7 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mymdpapp.Infra\Mymdpapp.Application.csproj" />
+    <ProjectReference Include="..\Mymdpapp.Application\Mymdpapp.Application.csproj" />
+    <ProjectReference Include="..\Mymdpapp.Infrastructure\Mymdpapp.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
