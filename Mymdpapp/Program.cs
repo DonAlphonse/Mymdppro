@@ -1,8 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using Mymdpapp.Infra;
+using Mymdpapp.Application;
+using Mymdpapp.Infrastructure;
+using System.IO;
+
 
 Application monApp = new Application();
+DbContext myDb = new DbContext();
 
 
 Console.WriteLine("Hello, World!");
@@ -20,4 +24,12 @@ while (buffer != "fin")
 }
 
 foreach (WebSite webSite in monApp.GetWebSites())
+{
     Console.WriteLine(webSite.Url);
+    
+}
+
+
+var filename = "C:\\Users\\aymer\\Documents\\Perso\\Mymdppro\\Mymdpapp.Infrastructure\\Default.txt";
+
+myDb.SaveToFile(monApp.GetWebSites(), filename);
