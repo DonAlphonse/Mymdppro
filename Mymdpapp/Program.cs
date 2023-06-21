@@ -54,3 +54,6 @@ foreach (WebSite webSite in monApp.GetWebSites())
 var filename = "C:\\Users\\aymer\\Documents\\Perso\\Mymdppro\\Mymdpapp.Infrastructure\\Default.txt";
 
 myDb.SaveToFile(monApp.GetWebSites(), filename);
+
+string textSites = myDb.ReadFromFile(filename);
+Console.WriteLine(textSites);

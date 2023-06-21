@@ -14,5 +14,15 @@ namespace Mymdpapp.Infrastructure
             File.WriteAllText(filename, json);
         }
 
+        public string ReadFromFile(string filename)
+        {
+            //var json = JsonConvert.SerializeObject(WebSites, Formatting.Indented);
+            string text = File.ReadAllText(filename);
+
+
+
+            return text;
+        }
+
     }
 }
