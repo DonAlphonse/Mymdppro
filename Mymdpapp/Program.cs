@@ -1,12 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.DependencyInjection;
 using Mymdpapp.Application;
 using Mymdpapp.Infrastructure;
+using MySql.EntityFrameworkCore.Extensions;
 using System.IO;
 
 
 Application monApp = new Application();
-DbContext myDb = new DbContext();
+DbContextFile myDb = new DbContextFile();
 List<WebSite> CleanedWebSites = new List<WebSite>();
 
 
@@ -57,3 +60,13 @@ myDb.SaveToFile(monApp.GetWebSites(), filename);
 
 string textSites = myDb.ReadFromFile(filename);
 Console.WriteLine(textSites);
+
+public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
+{
+    public void ConfigureDesignTimeServices(IServiceCollection serviceCollection)
+    {
+        serviceCollection.AddEntityFrameworkMySQL();
+        new EntityFrameworkRelationalDesignServicesBuilder(serviceCollection)
+            .TryAddCoreServices();
+    }
+}

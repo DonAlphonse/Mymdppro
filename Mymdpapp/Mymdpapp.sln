@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mymdpapp", "Mymdpapp.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mymdpapp.Infrastructure", "..\Mymdpapp.Infrastructure\Mymdpapp.Infrastructure.csproj", "{B8F9C390-C80F-4D8E-8AAD-10B4EF78B778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mymdpapp.Application", "..\Mymdpapp.Application\Mymdpapp.Application.csproj", "{378B4385-5D04-4B16-9529-488233BC162F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mymdpapp.Application", "..\Mymdpapp.Application\Mymdpapp.Application.csproj", "{378B4385-5D04-4B16-9529-488233BC162F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
