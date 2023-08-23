@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using Mymdpapp.Infrastructure;
 
-namespace Mymdpapp.Application
+namespace Mymdpapp.Applicat
 {
     public class Application
     {
         private List<WebSite> WebSites = new List<WebSite>();
+        PasswordsContext myPassDb = new PasswordsContext();
 
         public void AddWebSite(WebSite webSite)
         {
@@ -19,9 +20,9 @@ namespace Mymdpapp.Application
             return WebSites;
         }
 
-        public void SaveToDatabase()
+        public void SaveToDatabase(Websity websity)
         {
-
+            myPassDb.Websities.Add(websity);
         }
 
         public void RefreshFromDatabase()

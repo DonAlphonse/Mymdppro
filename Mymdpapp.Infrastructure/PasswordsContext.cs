@@ -33,3 +33,13 @@ public partial class PasswordsContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+
+// Ideally write an API here POST : /api/websites
+// Create/add a new website
+
+// GET : /api/websites
+// Retrieve all websites
+
+// GET : /api/website/{id}
+// Retrieve a specific website
+

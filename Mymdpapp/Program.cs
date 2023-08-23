@@ -2,14 +2,15 @@
 
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
-using Mymdpapp.Application;
+using Mymdpapp.Applicat;
 using Mymdpapp.Infrastructure;
 using MySql.EntityFrameworkCore.Extensions;
 using System.IO;
-
+using System.Security.Policy;
 
 Application monApp = new Application();
 DbContextFile myDb = new DbContextFile();
+PasswordsContext myPassDb = new PasswordsContext();
 List<WebSite> CleanedWebSites = new List<WebSite>();
 
 
@@ -18,13 +19,28 @@ Console.WriteLine("Hello, World!");
 Console.WriteLine("Ajoute un site");
 var buffer = Console.ReadLine();
 
+int i = 0;
+
+string Name;
+int Count;
+
 while (buffer != "fin")
 {
     WebSite webSite = new WebSite() { Url = buffer };
     monApp.AddWebSite(webSite);
 
+    Websity websity = new Websity
+    {
+        Website = buffer,
+        Id = i++
+    };
+
+
     Console.WriteLine("Ajoute un autre site");
     buffer = Console.ReadLine();
+
+    myPassDb.Websities.Add(websity);
+    myPassDb.SaveChanges();
 }
 
 
@@ -60,6 +76,19 @@ myDb.SaveToFile(monApp.GetWebSites(), filename);
 
 string textSites = myDb.ReadFromFile(filename);
 Console.WriteLine(textSites);
+
+
+
+Count = myPassDb.Websities.Local.Count();
+Console.WriteLine("Depuis la bdd");
+Console.WriteLine(Count);
+foreach (Websity websity in myPassDb.Websities.Local)
+{
+    Console.WriteLine("Depuis la bdd2");
+    Name = websity.Website.ToString();
+    Console.WriteLine(Name);
+}
+
 
 public class MysqlEntityFrameworkDesignTimeServices : IDesignTimeServices
 {
